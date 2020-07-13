@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title %}{{vote.vote_title}}{% endblock %}
+
+{% block content %}
+<h2>{{vote.vote_title}}</h2>
+<em>{{vote.start_date}}</em>
+<em>{{vote.end_date}}</em>
+<hr>
+
+
+
+
+<hr>
+
+<from action="{% url 'votes:vote_for_person' vote.id %}" method="POST">
+
+   <input type="text" required placeholder="Ваше ФИО" name="name"><br>
+    <button type="submit">Проголосовать</button>
+</from>
+{% endblock %}

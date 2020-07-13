@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Голосования{% endblock %}
+
+{% block content %}
+
+    {% if all_votes_list %}
+        {% for a in all_votes_list %}
+            <a href="{% url 'votes:detail' a.id %}">{{a.vote_title}}</a>
+        {% endfor %}
+    {% else %}
+        <h2>Голосования не найдены</h2>
+    {% endif %}
+{% endblock %}
